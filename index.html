@@ -6,12 +6,42 @@
     <title>Phone Hunter</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
+  <style>
+.loader {
+    color: #000;
+    font-family: Consolas, Menlo, Monaco, monospace;
+    font-weight: bold;
+    font-size: 78px;
+    opacity: 0.8;
+  }
+  .loader:before {
+    content: "{";
+    display: inline-block;
+    animation: pulse 0.4s alternate infinite ease-in-out;
+  }
+  .loader:after {
+    content: "}";
+    display: inline-block;
+    animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    to {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+      
+  </style>
   <body>
     <header class="my-4 text-center">
         <input id="input-field" type="text" class="form-control w-50 mx-auto rounded-5 text-center" placeholder="Search here....">
         <button id="search-btn" class="btn btn-primary rounded-5 my-3 px-5">Search </button>
     </header>
       <h4 id="nothing-text" class="d-none text-center text-danger">Sorry We didn't Find Anything</h4>
+      <div id="loader" class="loader-container text-center mt-5 d-none">
+        <span class="loader"></span>
+      </div>
     <main>
         <section id="phone-section" class="mt-4">
             <div class="container">

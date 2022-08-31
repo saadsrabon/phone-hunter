@@ -56,12 +56,24 @@ const loadPhones = async(search) => {
 //   append the child to the parent div
        phoneRow.appendChild(phoneCol)
       });
+      loadergif(false)
  }
 
 //  Input Button Event Handler for pass searh text
 document.getElementById('search-btn').addEventListener('click' ,()=> {
+  loadergif(true)
     const input = document.getElementById('input-field');
     const searchText = input.value;
     loadPhones(searchText);
-    input.value =""
+    input.value ="";
 })
+
+
+const loadergif =(isLoading) =>{
+const loader = document.getElementById('loader')
+  if( isLoading){
+     loader.classList.remove('d-none')
+  }else{
+    loader.classList.add('d-none')
+  }
+}
